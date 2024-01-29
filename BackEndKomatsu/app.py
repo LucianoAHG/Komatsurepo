@@ -10,7 +10,14 @@ data_controller = DataController()
 def get_data():
     # Obtén los campos que se desean consultar desde los parámetros de la URL
     fields = request.args.getlist('fields')
-    data = data_controller.query_data(fields)
+
+    # Obtén los parámetros de filtro desde los parámetros de la URL
+    filter_params = {}
+    for key, value in request.args.items():
+        if key not in ['fields']:
+            filter_params[key] = value
+
+    data = data_controller.query_data(fields, filter_params)
     return jsonify({'data': data})
 
 @app.route('/api/data', methods=['POST'])

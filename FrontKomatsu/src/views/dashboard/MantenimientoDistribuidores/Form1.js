@@ -6,10 +6,9 @@ const EditableTable = () => {
   const [data, setData] = useState([
     {
       id: 1,
-      nombre: '',
-      sapcode: '',
-      aval: '',
-      rolunico: ''
+      distribuidor: '',
+      sap_code: '',
+      rol_unico: ''
     }
   ]);
   const [error, setError] = useState(null);
@@ -20,8 +19,20 @@ const EditableTable = () => {
 
   const handleConsultar = async () => {
     try {
-      const selectedFields = ['nombre', 'sapcode', 'aval', 'rolunico'].join(',');
-      const response = await fetch(`http://127.0.0.1:5000/api/data?fields=${selectedFields}`, {
+      const selectedFields = ['distribuidor', 'sap_code', 'rol_unico'];
+      const filterValues = {};
+      data.forEach((item) => {
+        selectedFields.forEach((field) => {
+          filterValues[field] = item[field];
+        });
+      });
+
+      // Construir la cadena de consulta con los valores del filtro
+      const filterString = Object.entries(filterValues)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join('&');
+
+      const response = await fetch(`http://127.0.0.1:5000/api/data?${filterString}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -34,8 +45,11 @@ const EditableTable = () => {
 
       const responseData = await response.json();
 
-      // Actualiza los datos en el estado con los datos recibidos del servidor
-      setData(responseData.data);
+      // Actualizar los datos en el estado sin reemplazar la respuesta del servidor
+      setData((prevData) => prevData.map((item) => {
+        const newItem = responseData.data.find((serverItem) => serverItem.id === item.id);
+        return newItem ? { ...item, ...newItem } : item;
+      }));
       setError(null); // Limpiar mensaje de error si había alguno
     } catch (error) {
       console.error('Error:', error.message);
@@ -44,10 +58,9 @@ const EditableTable = () => {
   };
 
   const fields = [
-    { label: 'Distribuidor', field: 'nombre', md: 8 },
-    { label: 'Sap Code', field: 'sapcode', md: 4 },
-    { label: 'Aval', field: 'aval', md: 4 },
-    { label: 'Rol Unico', field: 'rolunico', md: 4 }
+    { label: 'Distribuidor', field: 'distribuidor', md: 8 },
+    { label: 'Sap Code', field: 'sap_code', md: 4 },
+    { label: 'Rol Unico', field: 'rol_unico', md: 4 }
   ];
 
   return (
