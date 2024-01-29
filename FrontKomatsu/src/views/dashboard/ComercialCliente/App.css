@@ -1,0 +1,7 @@
+/* Estilos del formulario */
+.form-container {
+  background-color: #fffdfd; /* Color de fondo del formulario */
+  border: 1px solid #ebe6e6; /* Borde del formulario */
+  padding: 20px; /* Relleno interno del formulario */
+  border-radius: 1px; /* Radio de borde del formulario */
+}

@@ -1,0 +1,89 @@
+/* calendario.css */
+
+/* Estilos para la entrada de texto del calendario */
+.tu-clase-estilo-personalizado {
+    width: 150px; /* Ajusta el ancho según sea necesario */
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el calendario emergente */
+  .react-datepicker {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente según sea necesario */
+  }
+  
+  .react-datepicker-wrapper {
+    display: inline-block;
+  }
+  
+  .react-datepicker__input-container {
+    position: relative;
+  }
+  
+  /* Estilos para la caja del calendario emergente */
+  .react-datepicker__portal {
+    position: fixed;
+    z-index: 9999;
+  }
+  
+  /* Estilos para la cabecera del calendario */
+  .react-datepicker__header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para los días del mes */
+  .react-datepicker__day {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .react-datepicker__day--keyboard-selected,
+  .react-datepicker__day--selected {
+    background-color: #007bff; /* Cambia el color de fondo seleccionado según sea necesario */
+    color: #fff; /* Cambia el color del texto seleccionado según sea necesario */
+  }
+  
+  /* Estilos para la flecha de cambio de mes */
+  .react-datepicker__navigation {
+    top: 10px;
+  }
+  
+  /* Estilos para el contenedor del pie de página */
+  .react-datepicker__footer {
+    padding: 10px;
+  }
+  
+  /* Estilos para el botón de "Hoy" en el pie de página */
+  .react-datepicker__today-button {
+    background-color: #007bff; /* Cambia el color de fondo según sea necesario */
+    color: #fff; /* Cambia el color del texto según sea necesario */
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  
+  
+  /* Estilos para el año seleccionado en el año del selector */
+
+  
+  /* Estilos para el contenedor del mes seleccionado en el mes del selector */
+  .react-datepicker__month-container {
+    margin-top: 10px;
+  }
+  
+  /* Estilos para el mes seleccionado en el mes del selector */
+ 
+  

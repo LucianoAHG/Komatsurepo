@@ -1,0 +1,20 @@
+.mi-tabla {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .mi-tabla th, .mi-tabla td {
+    border: 1px solid #ddd;
+    padding: 8px; /* Ajusta el espacio interno de las celdas */
+    text-align: left;
+  }
+  
+  /* Ajusta el ancho de las celdas según tus necesidades */
+  .mi-tabla th {
+    width: 100px; /* Cambia el valor según sea necesario */
+  }
+  
+  .mi-tabla td {
+    width: 80px; /* Cambia el valor según sea necesario */
+  }
+  

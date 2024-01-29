@@ -1,0 +1,16 @@
+.data-grid-table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .data-grid-table th, .data-grid-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .data-grid-table th {
+    background-color: #f2f2f2;
+  }
+  

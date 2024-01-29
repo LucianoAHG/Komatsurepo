@@ -1,0 +1,54 @@
+.Container {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 10px; /* Bordes semi redondeados */
+    padding: 20px; /* Ajusta el espacio interno según tus necesidades */
+  }
+  
+  .tables-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 20px; /* Adjust padding as needed */
+    border-radius: 10px; /* Adjust border radius as needed */
+  }
+  
+  .table {
+    background-color: #fff; /* Fondo blanco para cada tabla */
+    border-radius: 8px; /* Bordes semi redondeados para cada tabla */
+    padding: 18px; /* Ajusta el espacio interno según tus necesidades */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra opcional para resaltar las tablas */
+  }
+  
+  .TitleWithBorder {
+    border-bottom: 2px solid #ccc; /* Borde inferior para el título */
+    padding-bottom: 10px; /* Espaciado inferior para el título */
+  }
+  
+  /* Puedes personalizar más estilos según tus necesidades */
+
+  
+  /* Style to add space between rows */
+.custom-table tbody tr:not(:last-child) {
+  margin-bottom:30px; /* Adjust margin between rows as needed */
+}
+
+/* Style to set a fixed height for the table cells */
+.custom-table tbody td {
+  height: 20px; /* Adjust the height as needed */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.contenedor-con-fondo {
+  background-color: white;
+  border-radius: 10px; /* Ajusta según sea necesario para las esquinas semiredondeadas */
+  padding: 20px; /* Ajusta según sea necesario para el espacio interno */
+}

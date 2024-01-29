@@ -1,0 +1,143 @@
+/* Estilos para el contenedor de diálogo principal */
+.form-container {
+    background-color: #ffffff; /* Color de fondo del formulario */
+    border: 1px solid #ebe6e6; /* Borde del formulario */
+    padding: 20px; /* Relleno interno del formulario */
+   
+
+    margin-left: 1px;
+    border-radius: 1px;
+}
+
+/* Estilos adicionales para el formulario a la derecha */
+.form-container-right {
+    float: left; /* Posiciona el formulario a la derecha */
+    margin-left: 1px; /* Agrega un margen a la izquierda para separarlo del contenido */
+    border-radius: 1px;
+}
+
+/* Estilos para hacer el formulario cuadrado */
+.form-container-right.square {
+    width: 100px; /* Establece el ancho del formulario */
+    height: 100px; /* Establece la altura del formulario */
+    border-radius: 1px;
+}
+
+/* Estilos personalizados para el contenedor del diálogo */
+.custom-dialog-container {
+    background-color: #ffffff; /* Cambia el color de fondo del contenedor del diálogo */
+    border: 2px solid #ffffff; /* Cambia el color y el grosor del borde del contenedor del diálogo */
+    padding: 15px; /* Ajusta el relleno interno del contenedor del diálogo */
+    border-radius: 1px; /* Ajusta el radio de borde del contenedor del diálogo */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Agrega una sombra al contenedor del diálogo */
+    border-radius: 1px;
+}
+
+
+
+/* Estilos para las celdas de comentarios */
+.comment-section {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: none;
+    margin-left: -12px;
+    border-radius: 1px;
+}
+
+/* dialog.css */
+
+.dialogTitle {
+    background-color: #ffffff;
+    color: white;
+    padding: 16px;
+  }
+  
+ 
+  .dialogContent {
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 1px;
+  }
+  
+  .custom-dialogs.comment-section {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid white;
+  }
+  
+  .comment-section .MuiPaper-root {
+    background-color: transparent;
+  }
+  
+
+  .dialogContentText {
+    margin-bottom: 10px;
+  }
+  
+  .dialogActions {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Agrega más estilos según sea necesario */
+  /* Dialogo.css */
+
+/* Estilos personalizados para el contenedor del diálogo */
+.custom-dialog-container {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 15px;
+    
+    box-shadow: 0 0 10px rgba(245, 243, 243, 0.1);
+    
+}
+
+/* Estilos para las celdas de comentarios */
+.comment-section {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: none;
+ 
+    
+}
+
+
+/* Resto de tus estilos... */
+
+/* Dialogo.css */
+
+.comment-section {
+  background-color: #f0f0f0; /* Cambia el color de fondo del contenedor de comentarios */
+  border: 1px solid #ccc; /* Cambia el color y el grosor del borde del contenedor de comentarios */
+  padding: 15px; /* Ajusta el relleno interno del contenedor de comentarios */
+  border-radius: 1px; /* Ajusta el radio de borde del contenedor de comentarios */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Agrega una sombra al contenedor de comentarios */
+  margin-bottom: 20px; /* Agrega espacio entre diferentes contenedores de comentarios */
+}
+
+.comment-section button {
+  margin-top: 10px; /* Ajusta el espacio entre el área de texto y el botón */
+}
+
+.custom-dialog-container {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Agrega estilos al textfield */
+.textfield {
+  width: 100%; /* Establece el ancho del textfield al 100% del contenedor */
+  padding: 10px; /* Ajusta el relleno interno del textfield */
+  border: 0px solid #ffffff; /* Establece el borde del textfield */
+  border-radius: 3px; /* Establece el radio de borde del textfield */
+  box-sizing: border-box; /* Asegura que el ancho incluye el padding y el borde */
+  margin-bottom: 10px; /* Agrega espacio entre textfields */
+  font-size: 14px; /* Establece el tamaño de fuente del textfield */
+  /* Otros estilos según sea necesario */
+}

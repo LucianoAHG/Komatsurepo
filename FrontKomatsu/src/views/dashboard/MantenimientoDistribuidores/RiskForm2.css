@@ -1,0 +1,75 @@
+/* RiskForm.css */
+
+.risk-form-grid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 5000px; /* Ajusta según sea necesario */
+  }
+  
+  .risk-form-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .risk-form-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .modal-content {
+    text-align: left;
+  }
+  
+  /* Ajusta estos estilos según tus preferencias */
+  /* Add styles for buttons in your RiskForm.css */
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+
+.button-right {
+    position: right;
+    bottom: 10px;
+    right: 10px;
+}
+
+  
+  .risk-form-table {
+    border-spacing: 0;
+  }
+
+  /* RiskForm2.css */
+
+.risk-form-container {
+  padding: -10px; /* Add padding for better appearance */
+}
+
+.risk-form-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.risk-form-table label {
+  font-weight: bold;
+}
+
+.risk-form-table td {
+  padding: 8px;
+  border: 1px solid #ddd; /* Add borders for better separation */
+}
+
+/* Style DatePicker */
+.react-datepicker-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  width: 10%;
+}
+
+

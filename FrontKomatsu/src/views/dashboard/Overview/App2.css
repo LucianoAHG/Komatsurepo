@@ -1,0 +1,255 @@
+.form-container {
+    background-color: #ffffff; /* Color de fondo del formulario */
+    border: 1px solid #ebe6e6; /* Borde del formulario */
+    padding: 10px; /* Relleno interno del formulario */
+    border-radius: 1px; /* Radio de borde del formulario */
+  }
+  /* Estilos adicionales para el formulario a la derecha */
+.form-container-right {
+    float: left; /* Posiciona el formulario a la derecha */
+    margin-left: 10px; /* Agrega un margen a la izquierda para separarlo del contenido */
+}
+
+/* Estilos para hacer el formulario cuadrado */
+.form-container-right.square {
+    width: 100px; /* Establece el ancho del formulario */
+    height: 100px; /* Establece la altura del formulario */
+}
+
+.custom-table {
+    width: 400%; /* Puedes ajustar el ancho según tus necesidades */
+    margin-bottom: 0; /* Puedes ajustar el margen según tus necesidades */
+  }
+  
+  /* App2.css */
+
+  .button-container {
+    /* Establecer el contenedor como flex y alinear los elementos al final */
+    display: flex;
+    justify-content: flex-end;
+    /* Agregar espacio entre los elementos (opcional) */
+    gap: 10px;
+  }
+
+.main-container {
+  display: flex;
+}
+
+.form-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+
+
+.form-container-right {
+  margin-left: 10px;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-container th {
+  background-color: #f2f2f2;
+}
+
+.form-container-left {
+  margin-left: 20px; /* Ajusta el margen según tus preferencias */
+}
+.risk-form-grid {
+  display: grid;
+  grid-template-columns: auto auto; /* Dos columnas */
+  gap: px; /* Espaciado entre celdas */
+  /* Agrega más estilos según sea necesario */
+}
+
+.risk-form-grid label {
+  /* Estilos para las etiquetas (labels) */
+  font-weight: bold;
+}
+
+.risk-form-grid input,
+.risk-form-grid select {
+  /* Estilos para los input, botones y selects */
+  width: 100%; /* O el ancho que desees */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+}
+
+.risk-form-grid button {
+  /* Estilos específicos para el botón */
+  background-color: #2b89e0; /* Color de fondo */
+  color: white; /* Color del texto */
+  cursor: pointer;
+  /* Otros estilos según sea necesario */
+  
+  /* Nuevos estilos para el botón "Enviar" */
+  width: 150px; /* Ancho del botón */
+  margin-top: 10px; /* Margen superior para separar del elemento anterior */
+  align-self: flex-end; /* Alineación en la parte inferior del contenedor */
+}
+
+.risk-form-table {
+ 
+  text-align: left;  /* Alinear el contenido a la izquierda */
+}
+
+/* Estilos para el botón */
+.Enviar {
+  /* Estilos generales del botón */
+  padding: 10px 20px;
+  background-color: #2181da; /* Color de fondo */
+  margin: 20px 0; 
+   color: #fff; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Efecto de transición al pasar el mouse */
+
+  /* Estilos adicionales al pasar el mouse */
+}
+
+.Enviar:hover {
+  background-color: #2b89e0; /* Cambiar color de fondo al pasar el mouse */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup button {
+  color: blue;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+.risk-form-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.risk-form-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.risk-form-table th, .risk-form-table td {
+  border: 1px solid #e7e7e7;
+  padding: 8px;
+  text-align: left;
+}
+
+.risk-form-table th {
+  background-color: #ffffff;
+}
+
+
+.react-datepicker {
+  position: absolute;
+}
+
+.react-datepicker {
+  z-index: 9999;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px; 
+
+}
+
+.form-container {
+  background-color: #ffffff; /* Color de fondo del formulario */
+  border: 1px solid #ebe6e6; /* Borde del formulario */
+  padding: 10px; /* Relleno interno del formulario */
+  border-radius: 1px; /* Radio de borde del formulario */
+}
+/* Estilos adicionales para el formulario a la derecha */
+.form-container-right {
+  float: left; /* Posiciona el formulario a la derecha */
+  margin-left: 10px; /* Agrega un margen a la izquierda para separarlo del contenido */
+}
+
+/* Estilos para hacer el formulario cuadrado */
+.form-container-right.square {
+  width: 100px; /* Establece el ancho del formulario */
+  height: 100px; /* Establece la altura del formulario */
+}
+
+.custom-table {
+  width: 400%; /* Puedes ajustar el ancho según tus necesidades */
+  margin-bottom: 0; /* Puedes ajustar el margen según tus necesidades */
+}
+
+/* App2.css */
+
+.main-container {
+display: flex;
+}
+
+.form-container {
+border: 1px solid #ececec;
+padding: 20px;
+border-radius: 1px;
+margin: 10px;
+}
+
+
+
+.form-container-right {
+margin-left: 4px;
+}
+
+.table-container {
+margin-top: 20px;
+}
+
+.table-container table {
+width: 100%;
+border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+.table-container th {
+background-color: #ffffff;
+}
+
+.form-container-left {
+margin-left: 10px; /* Ajusta el margen según tus preferencias */
+}

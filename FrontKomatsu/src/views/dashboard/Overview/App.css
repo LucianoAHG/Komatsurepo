@@ -1,0 +1,102 @@
+.form-container {
+  background-color: #ffffff; /* Cambiar el color de fondo del formulario */
+  border: 1px solid #e9e8e8; /* Cambiar el ancho y color del borde del formulario */
+  padding: 15px; /* Ajustar el relleno interno del formulario */
+  border-radius: 1px; /* Cambiar el radio de borde del formulario */
+}
+  
+  .App {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 200px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 1px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #ffffff;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px; /* Espacio entre las tablas */
+  }
+  
+  .grid-item {
+    width: 100%;
+  }
+
+  .form-container {
+    background-color: #ffffff; /* Color de fondo del formulario */
+    border: 1px solid #ebe6e6; /* Borde del formulario */
+    padding: 10px; /* Relleno interno del formulario */
+    border-radius: 1px; /* Radio de borde del formulario */
+  }
+  /* Estilos adicionales para el formulario a la derecha */
+.form-container-right {
+    float: left; /* Posiciona el formulario a la derecha */
+    margin-left: 10px; /* Agrega un margen a la izquierda para separarlo del contenido */
+}
+
+/* Estilos para hacer el formulario cuadrado */
+.form-container-right.square {
+    width: 100px; /* Establece el ancho del formulario */
+    height: 100px; /* Establece la altura del formulario */
+}
+
+.custom-table {
+    width: 400%; /* Puedes ajustar el ancho según tus necesidades */
+    margin-bottom: 0; /* Puedes ajustar el margen según tus necesidades */
+  }
+  
+  /* App2.css */
+
+.main-container {
+  display: flex;
+}
+
+.form-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+
+
+.form-container-right {
+  margin-left: 10px;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-container th {
+  background-color: #f2f2f2;
+}
+
+.form-container-left {
+  margin-left: 20px; /* Ajusta el margen según tus preferencias */
+}

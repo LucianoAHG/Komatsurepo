@@ -1,0 +1,137 @@
+.risk-form-grid {
+  display: grid;
+  grid-template-columns: auto auto; /* Dos columnas */
+  gap: px; /* Espaciado entre celdas */
+  /* Agrega más estilos según sea necesario */
+}
+
+.risk-form-grid label {
+  /* Estilos para las etiquetas (labels) */
+  font-weight: bold;
+}
+body {
+margin: 0; /* Elimina el margen del cuerpo del documento */
+}
+.form-container {
+  margin-top: 20px; /* Ajusta el margen superior del contenedor */
+  margin-left: 2px; 
+  margin-right: px;/* Ajusta el margen izquierdo del contenedor */
+}
+.container {
+  margin: 20px; /* Establece el margen para todos los contenedores */
+}
+.risk-form-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px; /* Margen para el contenedor con clase risk-form-grid */
+}
+
+.form-container {
+  margin-top: 20px; /* Ajusta el margen superior del contenedor */
+  margin-bottom: 20px;
+}
+
+/* Estilos adicionales para el botón */
+.btn-consultar {
+  margin-top: -36px; /* Ajusta el margen superior del botón */
+}
+
+.risk-form-grid input,
+.risk-form-grid select,
+.risk-form-grid textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+}
+
+
+
+/* Nuevos estilos para campos de comentarios (textarea) */
+.risk-form-grid textarea {
+  border-radius: 0; /* Quitar bordes redondeados */
+}
+
+
+
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+
+.risk-form-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.risk-form-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.risk-form-table th, .risk-form-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.risk-form-table th {
+  background-color: #f2f2f2;
+}
+
+/* RiskForm.css */
+
+.form-container {
+  margin-top: 20px; /* Ajusta el margen superior del contenedor */
+}
+
+.form-group {
+  margin-bottom: 10px; /* Ajusta el margen inferior de cada grupo de formulario */
+}
+
+.btn-primary {
+  margin-left: auto; /* Esto empujará el botón hacia la derecha */
+  display: block;   
+  float: right; 
+}
+.mb-5 {
+  text-align: right;
+}
+/* Puedes ajustar estos estilos según tus necesidades */
+.form-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.datepicker-input {
+  font-size: 0.8rem;
+}
+
+.form-control {
+  font-size: 0.8rem;
+}
+
+
+
+.MuiDialog-paper {
+  background-color: rgb(255, 255, 255); /* Fondo en blanco */
+  border-radius: 0; /* Elimina las esquinas redondeadas */
+}
+
+.mb-8 {
+  margin-top: 1px; /* Ajusta el margen superior del contenedor */
+}

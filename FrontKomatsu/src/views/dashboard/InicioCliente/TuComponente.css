@@ -1,0 +1,9 @@
+.tu-componente {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
+  }
+  
+  .titulo {
+    border-bottom: 2px solid rgb(52, 139, 238); /* Línea azul debajo del título */
+    font-size: 1.5em; /* Tamaño de fuente del título */
+  }
+  

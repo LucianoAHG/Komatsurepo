@@ -1,0 +1,114 @@
+/* Estilos del contenedor del formulario */
+.risk-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas con tamaño flexible */
+  gap: 10px; /* Espaciado entre celdas */
+  margin: 20px; /* Márgenes externos */
+}
+
+/* Estilos para las etiquetas (labels) */
+.risk-form-grid label {
+  font-weight: bold;
+  margin-bottom: 5px; /* Margen inferior para separar de los elementos siguientes */
+}
+
+/* Estilos para los input, botones y selects */
+.risk-form-grid input,
+.risk-form-grid select {
+  width: 100%; /* Ancho completo */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  margin-top: -10px; /* Margen inferior para separar de los elementos siguientes */
+}
+
+/* Estilos específicos para el botón "Enviar" */
+.risk-form-grid button.Enviar {
+  width: 100%; /* Ancho completo */
+  padding: 10px;
+  background-color: #2a98ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilos adicionales al pasar el mouse sobre el botón "Enviar" */
+.risk-form-grid button.Enviar:hover {
+  background-color: #2a98ff; /* Cambiar color de fondo al pasar el mouse */
+}
+
+/* Contenedor del formulario con disposición vertical y centrado */
+.risk-form-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Estilos para la tabla del formulario */
+.risk-form-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px; /* Margen superior para separar del elemento anterior */
+}
+
+/* Estilos para las celdas de la tabla */
+.risk-form-table th,
+.risk-form-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilos para el encabezado de la tabla */
+.risk-form-table th {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para el popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el botón dentro del popup */
+.popup button {
+  color: #2a98ff;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 16px;
+  text-decoration: underline;
+  margin-top: 20px;
+}
+
+.mb-5 {
+  text-align: right;
+}
+/* Puedes ajustar estos estilos según tus necesidades */
+.form-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.datepicker-input {
+  font-size: 0.8rem;
+}
+
+.form-control {
+  font-size: 0.8rem;
+}
+
+.btn-container {
+  margin-top: -20px;
+}

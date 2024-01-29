@@ -1,0 +1,27 @@
+/* src/App.css */
+
+.app-container {
+    background-color: white;
+    padding: 20px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .tables-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Añade margen inferior para separar las tablas */
+  }
+  
+  .table {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    width: 48%; /* Ajusta el ancho según sea necesario */
+  }
+  
+  .table h5 {
+    margin-bottom: 20px;
+  }
+  
+  /* Ajusta los estilos según tus preferencias */
+  

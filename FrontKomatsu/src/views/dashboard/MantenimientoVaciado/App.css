@@ -1,0 +1,60 @@
+.form-container {
+  background-color: #ffffff; /* Cambiar el color de fondo del formulario */
+  border: 1px solid #ebeaea; /* Cambiar el ancho y color del borde del formulario */
+  padding: 15px; /* Ajustar el relleno interno del formulario */
+  border-radius: 1px; /* Cambiar el radio de borde del formulario */
+  width: 100%; /* Hacer que el contenedor ocupe todo el ancho de la pantalla */
+  height: 70%; /* Opcional: hacer que el contenedor ocupe toda la altura de la pantalla */
+  box-sizing: border-box; /* Asegurarse de que el ancho incluye el relleno y el borde */
+}
+  
+  .App {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 200px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px; /* Espacio entre las tablas */
+  }
+  
+  .grid-item {
+    width: 100%;
+  }
+
+  /* En App.css u otro archivo CSS */
+.guardar-btn {
+  background-color: rgb(33, 133, 201);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cancelar-btn {
+  background-color: rgb(33, 133, 201);
+  color: white;
+  border: 2px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}

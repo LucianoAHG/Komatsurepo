@@ -1,0 +1,73 @@
+/* src/App.css */
+
+.app-container {
+    background-color: white;
+    padding: 20px;
+    height: 200vh;
+    overflow-y: auto;
+  }
+  
+  .tables-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Añade margen inferior para separar las tablas */
+  }
+  
+  .table {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    width: 48%; /* Ajusta el ancho según sea necesario */
+  }
+  
+  .table h5 {
+    margin-bottom: 20px;
+  }
+  
+  .horizontal-tables-container {
+    display: flex;
+    overflow-x: auto; /* Permite desplazamiento horizontal si el contenido es demasiado ancho */
+  }
+  
+  .table-container {
+    flex: 1;
+    margin-right: 30px; /* Ajusta el espacio entre las tablas según sea necesario */
+  }
+  
+  /* Puedes agregar más estilos según sea necesario */
+
+  /* TuComponente.css */
+
+.custom-table {
+  width: 100%;
+  margin-bottom:20px;
+}
+
+.table-container {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+/* Style to make all cells in the table have the same size */
+.custom-table th,
+.custom-table td {
+  text-align: center;
+  width: 10%; /* Equal width for each column */
+  padding: 9px; /* Adjust padding as needed */
+}
+
+/* Style to remove extra space between cells in the table */
+.custom-table tbody tr {
+  line-height: 20px; /* Remove extra vertical space between rows */
+}
+
+/* Style to add space between rows */
+.custom-table tbody tr:not(:last-child) {
+  margin-bottom:30px; /* Adjust margin between rows as needed */
+}
+
+/* Style to set a fixed height for the table cells */
+.custom-table tbody td {
+  height: 20px; /* Adjust the height as needed */
+}
+
+  

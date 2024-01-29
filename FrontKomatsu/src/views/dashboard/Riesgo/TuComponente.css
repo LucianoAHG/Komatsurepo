@@ -1,0 +1,21 @@
+
+/* TuComponente.css */
+
+.tu-componente-container {
+    overflow-x: auto;
+    padding: 20px;
+  }
+  
+  .tables-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permite que las tablas se envuelvan a la siguiente línea si no caben en el ancho */
+  }
+  
+  .table {
+    flex: 1; /* Distribuye el espacio disponible entre las tablas */
+    margin: 10px;
+  }
+  
+  /* Ajusta los estilos según tus preferencias */
+  
