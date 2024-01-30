@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Form1 from './Form1';
-import Form2 from './Form2';
-
+// import Form2 from './Form2';
 import Tabla3 from './Tabla3';
 import Tabla4 from './Tabla4';
 import Dialogos from './Dialogos';
@@ -26,20 +25,13 @@ const App = () => {
         </Col>
         <Col xs={12}>
           <TitleWithBorder>
-            <h5>Avales </h5>
-          </TitleWithBorder>
-          <Form2 />
-        </Col>
-
-        <Col xs={12}>
-          <TitleWithBorder>
             <h5> Marcas</h5>
           </TitleWithBorder>
           <Tabla3 />
         </Col>
         <Col xs={12}>
           <TitleWithBorder>
-            <h5> </h5>
+            <h5> Product Line </h5>
           </TitleWithBorder>
           <Tabla4 />
         </Col>

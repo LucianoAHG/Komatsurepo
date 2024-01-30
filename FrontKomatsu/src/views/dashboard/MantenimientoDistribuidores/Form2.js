@@ -49,6 +49,7 @@ const EditableTable = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchDistribuidores = async () => {
     try {
       const response = await fetch('URL_DEL_ENDPOINT_PARA_CONSULTAR_DISTRIBUIDORES_Y_AVALES');
@@ -68,15 +69,15 @@ const EditableTable = () => {
 
   useEffect(() => {
     fetchDistribuidores();
-  }, []);
+  }, [fetchDistribuidores]);
 
   const fields = [
     { field: 'tipoid', headerName: 'Tipo ID', width: 300 },
     { field: 'identificador', headerName: 'Identificador', width: 300 },
     { field: 'razonsocial', headerName: 'Razon Social', width: 300 },
     { field: 'domicilio', headerName: 'Domicilio', width: 300 },
-    { field: 'pais', headerName: 'Pais', width: 300 },
-    { field: 'tieneAval', headerName: 'Tiene Aval', width: 150 } // Agregar columna para mostrar si tiene aval
+    { field: 'pais', headerName: 'Pais', width: 300 }
+    // { field: 'tieneAval', headerName: 'Tiene Aval', width: 150 } // Agregar columna para mostrar si tiene aval
   ];
 
   const opcionesTipoID = ['Opción 1', 'Opción 2', 'Opción 3'];

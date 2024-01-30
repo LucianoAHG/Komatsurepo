@@ -76,62 +76,53 @@ const CommentSection = () => {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-      <Button variant="contained" color="primary" onClick={() => {
-        handleAddComment();
-        handleOpenDialog();
-        
-      }}
-          style={{ backgroundColor: '#2181da', color: '#ffffff' }}
->
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => {
+          handleAddComment();
+          handleOpenDialog();
+        }}
+        style={{ backgroundColor: '#2181da', color: '#ffffff' }}
+      >
         Guardar
       </Button>
-      
 
       <Dialog open={dialogOpen} onClose={handleCloseDialog}>
-  <DialogTitle>Información Guardada</DialogTitle>
-  <DialogContent>
-    <DialogContentText>
-      <strong>Aspectos Positivos:</strong>
-      <ul>
-        {positiveComments.map((comment, index) => (
-          <li key={index}>{comment}</li>
-        ))}
-      </ul>
+        <DialogTitle>Información Guardada</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <strong>Aspectos Positivos:</strong>
+            <ul>
+              {positiveComments.map((comment, index) => (
+                <li key={index}>{comment}</li>
+              ))}
+            </ul>
 
-      <strong>Aspectos Negativos:</strong>
-      <ul>
-        {negativeComments.map((comment, index) => (
-          <li key={index}>{comment}</li>
-        ))}
-      </ul>
+            <strong>Aspectos Negativos:</strong>
+            <ul>
+              {negativeComments.map((comment, index) => (
+                <li key={index}>{comment}</li>
+              ))}
+            </ul>
 
-      <strong>Otros Comentarios:</strong>
-      <ul>
-        {otherComments.map((comment, index) => (
-          <li key={index}>{comment}</li>
-        ))}
-      </ul>
-    </DialogContentText>
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={handleCloseDialog} color="primary">
-      Cerrar
-    </Button>
-  </DialogActions>
-</Dialog>
+            <strong>Otros Comentarios:</strong>
+            <ul>
+              {otherComments.map((comment, index) => (
+                <li key={index}>{comment}</li>
+              ))}
+            </ul>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Cerrar
+          </Button>
+        </DialogActions>
+      </Dialog>
 
-
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          onClose={handleCloseSnackbar}
-          severity="success"
-        >
+      <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <MuiAlert elevation={6} variant="filled" onClose={handleCloseSnackbar} severity="success">
           Información guardada con éxito
         </MuiAlert>
       </Snackbar>
@@ -139,7 +130,7 @@ const CommentSection = () => {
   );
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 2,  marginleft: -20, borderradius: '1px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 2, marginleft: -20, borderradius: '1px' }}>
       {renderCommentSection('Aspectos Positivos', newPositiveComment, setNewPositiveComment, handleAddPositiveComment)}
       {renderCommentSection('Aspectos Negativos', newNegativeComment, setNewNegativeComment, handleAddNegativeComment)}
       {renderCommentSection('Otros Comentarios', newOtherComment, setNewOtherComment, handleAddOtherComment)}

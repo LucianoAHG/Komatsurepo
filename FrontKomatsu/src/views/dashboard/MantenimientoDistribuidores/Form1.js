@@ -8,6 +8,7 @@ const EditableTable = () => {
       id: 1,
       distribuidor: '',
       sap_code: '',
+      aval: '',
       rol_unico: ''
     }
   ]);
@@ -19,7 +20,7 @@ const EditableTable = () => {
 
   const handleConsultar = async () => {
     try {
-      const selectedFields = ['distribuidor', 'sap_code', 'rol_unico'];
+      const selectedFields = ['distribuidor', 'sap_code', 'rol_unico', 'aval'];
       const filterValues = {};
       data.forEach((item) => {
         selectedFields.forEach((field) => {
@@ -46,10 +47,12 @@ const EditableTable = () => {
       const responseData = await response.json();
 
       // Actualizar los datos en el estado sin reemplazar la respuesta del servidor
-      setData((prevData) => prevData.map((item) => {
-        const newItem = responseData.data.find((serverItem) => serverItem.id === item.id);
-        return newItem ? { ...item, ...newItem } : item;
-      }));
+      setData((prevData) =>
+        prevData.map((item) => {
+          const newItem = responseData.data.find((serverItem) => serverItem.id === item.id);
+          return newItem ? { ...item, ...newItem } : item;
+        })
+      );
       setError(null); // Limpiar mensaje de error si había alguno
     } catch (error) {
       console.error('Error:', error.message);
@@ -60,6 +63,7 @@ const EditableTable = () => {
   const fields = [
     { label: 'Distribuidor', field: 'distribuidor', md: 8 },
     { label: 'Sap Code', field: 'sap_code', md: 4 },
+    { label: 'Aval', field: 'aval', md: 8 },
     { label: 'Rol Unico', field: 'rol_unico', md: 4 }
   ];
 
