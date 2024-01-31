@@ -1,47 +1,86 @@
-import React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import React, { useEffect } from 'react';
+import { useFormik } from 'formik';
+import { Container, Button, InputGroup } from 'react-bootstrap';
+import AddIcon from '@mui/icons-material/Add';
+import 'react-datepicker/dist/react-datepicker.css';
+import './Riskform3.css';
 
-const dataTabla1 = [{ id: 1, nombre: '' }];
+const Tabla4 = ({ distribuidor }) => {
+  const [filas, setFilas] = React.useState([{ key: 1, name: 'nombreCliente' }]);
 
-const dataTabla2 = [{ id: 5, producto: '' }];
+  const formik = useFormik({
+    initialValues: filas.reduce((acc, fila) => ({ ...acc, [fila.name]: '' }), {})
+  });
 
-const dataTabla3 = [{ id: 9, ciudad: '', poblacion: '48' }];
+  useEffect(() => {
+    // Actualiza el formulario cuando cambie el distribuidor
+    formik.resetForm();
+  }, [distribuidor]);
 
-const Tabla1 = () => {
-  const columns = [{ field: 'nombre', headerName: 'Productos', width: 300 }];
+  const agregarFila = () => {
+    const nuevaFila = {
+      key: filas.length + 1,
+      name: `nuevaFila${filas.length + 1}`
+    };
+    setFilas([...filas, nuevaFila]);
+    formik.setValues({ ...formik.values, [nuevaFila.name]: '' });
+  };
 
-  return <DataGrid rows={dataTabla1} columns={columns} pageSize={3} />;
-};
+  const guardarDatos = () => {
+    // Implementar la lógica para guardar datos aquí
+  };
 
-const Tabla2 = () => {
-  const columns = [{ field: 'producto', headerName: 'Participacion', width: 300 }];
+  const renderTableRows = (filas, formik) => {
+    return filas.map((fila) => (
+      <tr key={fila.key}>
+        <td>
+          <input type="text" id={fila.name} name={fila.name} onChange={formik.handleChange} value={formik.values[fila.name]} />
+        </td>
+      </tr>
+    ));
+  };
 
-  return <DataGrid rows={dataTabla2} columns={columns} pageSize={3} />;
-};
-
-const Tabla3 = () => {
-  const columns = [{ field: 'ciudad', headerName: 'Socios', width: 300 }];
-
-  return <DataGrid rows={dataTabla3} columns={columns} pageSize={3} />;
-};
-
-const App = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'left', gap: '20px', width: '100%' }}>
-      <div>
-        <h2> </h2>
-        <Tabla1 />
-      </div>
-      <div>
-        <h2> Participacion </h2>
-        <Tabla2 />
-      </div>
-      <div>
-        <h2> Partners/ShareHolder </h2>
-        <Tabla3 />
+    <div>
+      <Container fluid className="risk-form-container">
+        <form onSubmit={formik.handleSubmit} className="risk-form-grid">
+          <table className="risk-form-table">
+            <tbody>
+              {renderTableRows(filas, formik)}
+              <tr>
+                <td>
+                  <InputGroup>
+                    <Button
+                      onClick={agregarFila}
+                      variant="primary"
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        color: '#1976D2',
+                        marginLeft: '-40px'
+                      }}
+                    >
+                      <AddIcon />
+                    </Button>
+                  </InputGroup>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
+            {/* Puedes dejar este div vacío o agregar contenido adicional si es necesario */}
+          </div>
+        </form>
+      </Container>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', marginTop: '-30px', marginLeft: '7px', marginBottom: '50px' }}>
+        <Button type="submit" variant="primary" onClick={guardarDatos}>
+          Guardar
+        </Button>
       </div>
     </div>
   );
 };
 
-export default App;
+export default Tabla4;

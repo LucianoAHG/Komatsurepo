@@ -1,51 +1,82 @@
-import React, { useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
-import { Button } from '@mui/material';
+import React, { useEffect } from 'react';
+import { useFormik } from 'formik';
+import { Container, Button, InputGroup } from 'react-bootstrap';
+import AddIcon from '@mui/icons-material/Add';
+import 'react-datepicker/dist/react-datepicker.css';
+import './Riskform3.css';
 
-const MarcasDataGrid = ({ marcas, onAgregarClick }) => {
-  const [nuevaMarca, setNuevaMarca] = useState('');
+const Tabla3 = ({ distribuidor }) => {
+  const [filas, setFilas] = React.useState([{ key: 1, name: 'nombreCliente' }]);
 
-  // Definir las columnas del DataGrid
-  const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'nombre', headerName: 'Nombre de la Marca', width: 200 }
-    // Agregar más columnas según tus necesidades
-  ];
+  const formik = useFormik({
+    initialValues: filas.reduce((acc, fila) => ({ ...acc, [fila.name]: '' }), {})
+  });
 
-  // Mapear los datos de las marcas para crear las filas del DataGrid
-  const rows = marcas
-    ? marcas.map((marca) => ({
-        id: marca.id,
-        nombre: marca.nombre
-        // Agregar más propiedades según tus necesidades
-      }))
-    : [];
+  useEffect(() => {
+    // Actualiza el formulario cuando cambie el distribuidor
+    formik.resetForm();
+  }, [distribuidor, formik]);
 
-  const handleAgregarClick = () => {
-    // Agregar la nueva marca a la lista de marcas
-    onAgregarClick(nuevaMarca);
+  const agregarFila = () => {
+    const nuevaFila = {
+      key: filas.length + 1,
+      name: `nuevaFila${filas.length + 1}`
+    };
+    setFilas([...filas, nuevaFila]);
+    formik.setValues({ ...formik.values, [nuevaFila.name]: '' });
+  };
 
-    // Limpiar el campo de nueva marca después de agregar
-    setNuevaMarca('');
+  const guardarDatos = () => {
+    // Implementar la lógica para guardar datos aquí
   };
 
   return (
-    <div style={{ height: 300, width: '100%' }}>
-      <div style={{ marginBottom: '10px', display: 'flex' }}>
-        <input
-          type="text"
-          placeholder="Nueva Marca"
-          value={nuevaMarca}
-          onChange={(e) => setNuevaMarca(e.target.value)}
-          style={{ marginRight: '10px' }}
-        />
-        <Button onClick={handleAgregarClick} variant="contained" color="primary">
-          Agregar
+    <div>
+      <Container fluid className="risk-form-container">
+        <form onSubmit={formik.handleSubmit} className="risk-form-grid">
+          <table className="risk-form-table">
+            <tbody>
+              {filas.map((fila) => (
+                <tr key={fila.key}>
+                  <td>
+                    <input type="text" id={fila.name} name={fila.name} onChange={formik.handleChange} value={formik.values[fila.name]} />
+                  </td>
+                </tr>
+              ))}
+              <tr>
+                <td>
+                  <InputGroup>
+                    <Button
+                      onClick={agregarFila}
+                      variant="primary"
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        color: '#1976D2',
+                        marginLeft: '-40px'
+                      }}
+                    >
+                      <AddIcon />
+                    </Button>
+                  </InputGroup>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '5px' }}>
+            {/* Puedes dejar este div vacío o agregar contenido adicional si es necesario */}
+          </div>
+        </form>
+      </Container>
+      <div style={{ display: 'flex', justifyContent: 'flex-start', marginTop: '-30px', marginLeft: '7px', marginBottom: '50px' }}>
+        <Button type="submit" variant="primary" onClick={guardarDatos}>
+          Guardar
         </Button>
       </div>
-      <DataGrid rows={rows} columns={columns} pageSize={5} disableSelectionOnClick />
     </div>
   );
 };
 
-export default MarcasDataGrid;
+export default Tabla3;

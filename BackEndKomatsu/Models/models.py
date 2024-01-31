@@ -20,20 +20,13 @@ class MantenimientoDistribuidores(Base):
             'sap_code': self.sap_code,
             'aval': self.aval,
             'rol_unico': self.rol_unico
-            
         }
-    
-    # Relación con la tabla Avales (uno a uno)
+
     avales = relationship('Avales', back_populates='mantenimiento_distribuidores', uselist=False)
-    # Relación con la tabla Marcas (uno a muchos)
     marcas = relationship('Marcas', back_populates='mantenimiento_distribuidores')
-    # Relación con la tabla Producto (uno a muchos)
     productos = relationship('Producto', back_populates='mantenimiento_distribuidores')
-    # Relación con la tabla Participacion (uno a muchos)
     participaciones = relationship('Participacion', back_populates='mantenimiento_distribuidores')
-    # Relación con la tabla Socio (uno a muchos)
     socios = relationship('Socio', back_populates='mantenimiento_distribuidores')
-    # Relación con la tabla Comentarios (uno a uno)
     comentario = relationship('Comentarios', back_populates='mantenimiento_distribuidores', uselist=False)
 
 class Avales(Base):
@@ -44,9 +37,7 @@ class Avales(Base):
     razon_social = Column(String)
     domicilio = Column(String)
     pais = Column(String)
-    
-    
-    # Relación con MantenimientoDistribuidores
+
     mantenimiento_distribuidores_id = Column(Integer, ForeignKey('Mantenimiento_Distribuidores.id'))
     mantenimiento_distribuidores = relationship('MantenimientoDistribuidores', back_populates='avales')
 
@@ -59,10 +50,8 @@ class Marcas(Base):
         return {
             'id': self.id,
             'Nombre_Marca': self.Nombre_Marca
-            # Agrega más campos según sea necesario
         }
-    
-    # Relación con MantenimientoDistribuidores (muchos a uno)
+
     mantenimiento_distribuidores_id = Column(Integer, ForeignKey('Mantenimiento_Distribuidores.id'))
     mantenimiento_distribuidores = relationship('MantenimientoDistribuidores', back_populates='marcas')
 
@@ -70,28 +59,22 @@ class Producto(Base):
     __tablename__ = 'Producto'
     id = Column(Integer, primary_key=True)
     Producto = Column(String)
-    def serialize(self):
-        return {
-            'id': self.id,
-            'Producto': self.Producto
-            # Agrega más campos según sea necesario
-        }
-    
-    # Relación con MantenimientoDistribuidores (muchos a uno)
+
     mantenimiento_distribuidores_id = Column(Integer, ForeignKey('Mantenimiento_Distribuidores.id'))
     mantenimiento_distribuidores = relationship('MantenimientoDistribuidores', back_populates='productos')
+
 
 class Participacion(Base):
     __tablename__ = 'Participacion'
     id = Column(Integer, primary_key=True)
     Participacion = Column(String)
+
     def serialize(self):
         return {
             'id': self.id,
             'Participacion': self.Participacion
-            # Agrega más campos según sea necesario
         }
-    # Relación con MantenimientoDistribuidores (muchos a uno)
+
     mantenimiento_distribuidores_id = Column(Integer, ForeignKey('Mantenimiento_Distribuidores.id'))
     mantenimiento_distribuidores = relationship('MantenimientoDistribuidores', back_populates='participaciones')
 
@@ -104,10 +87,8 @@ class Socio(Base):
         return {
             'id': self.id,
             'Nombre_Socio': self.Nombre_Socio
-            # Agrega más campos según sea necesario
         }
-    
-    # Relación con MantenimientoDistribuidores (muchos a uno)
+
     mantenimiento_distribuidores_id = Column(Integer, ForeignKey('Mantenimiento_Distribuidores.id'))
     mantenimiento_distribuidores = relationship('MantenimientoDistribuidores', back_populates='socios')
 
@@ -117,60 +98,97 @@ class Comentarios(Base):
     Comentario_Positivo = Column(String)
     Comentario_Negativos = Column(String)
     Comentario_otros = Column(String)
+
     def serialize(self):
         return {
             'id': self.id,
             'Comentario_Positivo': self.Comentario_Positivo,
             'Comentario_Negativos': self.Comentario_Negativos,
             'Comentario_otros': self.Comentario_otros
-            # Agrega más campos según sea necesario
         }
-    # Relación con MantenimientoDistribuidores (uno a uno)
+
     mantenimiento_distribuidores_id = Column(Integer, ForeignKey('Mantenimiento_Distribuidores.id'))
     mantenimiento_distribuidores = relationship('MantenimientoDistribuidores', back_populates='comentario')
 
+class Indicadores(Base):
+    __tablename__ = 'Indicadores_overview'
+    id = Column(Integer, primary_key=True)
+    Fecha = Column(Integer)
+    Años_Komatsu = Column(String)
+    Comportamiento_Pago = Column(String)
+    Credito_Promedio = Column(String)
+    Linea_Amarilla = Column(String)
+    Sblc = Column(String)
+    Garantias_Otras = Column(String)
+    Deuda_Sap = Column(String)
+    Embi = Column(String)
 
+    def serialize(self):
+        return {
+            'id': self.id,
+            'Fecha': self.Fecha,
+            'Años_Komatse': self.Años_Komatsu,
+            'Comportamiento_Pago': self.Comportamiento_Pago,
+            'Credito_Promedio' : self.Credito_Promedio,
+            'Linea_Amarilla': self.Linea_Amarilla,
+            'Sblc': self.Sblc,
+            'Garantias_Otras': self.Garantias_Otras,
+            'Deuda_Sap': self.Deuda_Sap,
+            'Embi': self.Embi
+        }
 
-class DataModel:
+class Consultar_Distribuidores:
     def __init__(self):
-        # Configuración de la conexión a la base de datos SQL
-        DATABASE_URL = 'sqlite:///komatsupruebas.db'
+        DATABASE_URL = 'sqlite:///C:/Users/desar/OneDrive/Documentos/komatsu/BackEndKomatsu/komatsupruebas.db'
         self.engine = create_engine(DATABASE_URL, echo=True)
         self.Session = sessionmaker(bind=self.engine)
 
     def Traer_Info(self, fields, filter_params):
         try:
-        # Recupera datos de la base de datos
             session = self.Session()
 
-            # Construye dinámicamente las condiciones de búsqueda insensibles a mayúsculas y minúsculas
             filter_conditions = [
-            func.lower(getattr(MantenimientoDistribuidores, key)).ilike(func.lower(value))
-            for key, value in filter_params.items()
+                func.lower(getattr(MantenimientoDistribuidores, key)).ilike(func.lower(value))
+                for key, value in filter_params.items()
             ]
 
-            # Aplica la búsqueda usando OR entre las condiciones
             query = session.query(MantenimientoDistribuidores).filter(or_(*filter_conditions))
 
             data_mant_distribuidores_info = query.all()
 
         except SQLAlchemyError as e:
-            # Manejo de excepciones específicas de SQLAlchemy
             print(f"Error al recuperar datos: {e}")
-            session.rollback()  # Revierte la transacción en caso de error
+            session.rollback()
             return {'error': 'Error al recuperar datos de la base de datos'}
         except Exception as e:
-            # Manejo de otras excepciones
             print(f"Error inesperado: {e}")
             return {'error': 'Error inesperado'}
         finally:
             session.close()
 
-        # Verifica si hay resultados antes de serializarlos
         if data_mant_distribuidores_info:
-            # Serializa los datos antes de enviarlos al frontend
             serialized_data = [item.serialize() for item in data_mant_distribuidores_info]
             return serialized_data
         else:
-            # Si no hay resultados, devuelve un mensaje indicando que no existe
             return {'message': 'No se encontraron resultados para los parámetros proporcionados'}
+
+class Guardar_Producto:
+    def __init__(self):
+        DATABASE_URL = 'sqlite:///C:/Users/desar/OneDrive/Documentos/komatsu/BackEndKomatsu/komatsupruebas.db'
+        self.engine = create_engine(DATABASE_URL, echo=True)
+        self.Session = sessionmaker(bind=self.engine)   
+
+    def guardar_data(self, producto_nuevo):
+        try:
+            session = self.Session()
+            nuevo_producto = Producto(Producto=producto_nuevo.get('producto'))
+            session.add(nuevo_producto)
+            session.commit()
+            session.refresh(nuevo_producto)
+            return {'message': 'Agregado Exitosamente', 'nuevo_producto': producto_nuevo.serialize()}
+        except Exception as e:
+            print(f"Error al agregar datos: {e}")
+            session.rollback()
+            return {'error': 'Error al agregar a la bd'}
+        finally:
+            session.close()

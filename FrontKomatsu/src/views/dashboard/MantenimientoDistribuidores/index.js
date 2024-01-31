@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Form1 from './Form1';
-// import Form2 from './Form2';
+//import Form2 from './Form2'
+
 import Tabla3 from './Tabla3';
 import Tabla4 from './Tabla4';
+import Tabla5 from './Tabla5';
 import Dialogos from './Dialogos';
 import Form5 from './Form5';
 import './RiskForm.css';
@@ -23,6 +25,7 @@ const App = () => {
           </TitleWithBorder>
           <Form1 />
         </Col>
+
         <Col xs={12}>
           <TitleWithBorder>
             <h5> Marcas</h5>
@@ -34,6 +37,9 @@ const App = () => {
             <h5> Product Line </h5>
           </TitleWithBorder>
           <Tabla4 />
+        </Col>
+        <Col xs={12}>
+          <Tabla5 />
         </Col>
         <Col xs={12}>
           <TitleWithBorder>

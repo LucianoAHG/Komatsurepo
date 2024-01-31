@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Form, Col, Container, Row, Button } from 'react-bootstrap';
 import './RiskForm.css';
@@ -8,30 +7,39 @@ import MuiAlert from '@mui/material/Alert';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const EditableTable = () => {
-  const [data, setData] = useState([
-    {
-      id: 1,
-
-      tasadecambio: ''
-    }
-  ]);
+  const [producto, setProducto] = useState('');
 
   const [isSnackbarOpen, setSnackbarOpen] = useState(false);
 
-  const handleInputChange = (id, field, value) => {
-    setData((prevData) => prevData.map((item) => (item.id === id ? { ...item, [field]: value } : item)));
+  const handleInputChange = (value) => {
+    setProducto(value);
   };
 
-  const handleSave = () => {
-    // Add logic to save the data
-    console.log('Data saved:', data);
+  const handleSave = async () => {
+    try {
+      // Modifica la estructura del objeto que se envía al backend
+      const response = await fetch('http://127.0.0.1:5000/api/data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ producto: producto }) // Envía solo el campo 'producto'
+      });
 
-    // Show snackbar on successful save
-    setSnackbarOpen(true);
+      if (!response.ok) {
+        throw new Error('Error al guardar datos en el servidor');
+      }
+
+      // Mostrar la snackbar en caso de un guardado exitoso
+      setSnackbarOpen(true);
+    } catch (error) {
+      console.error('Error:', error.message);
+      // Puedes manejar el error de otra manera si es necesario
+    }
   };
 
   const handleCancel = () => {
-    // Add logic to cancel the edits
+    // Agregar lógica para cancelar las ediciones
     console.log('Edits canceled');
   };
 
@@ -39,58 +47,24 @@ const EditableTable = () => {
     setSnackbarOpen(false);
   };
 
-  const fields = [{ label: 'Nombre', field: 'tasadecambio', md: 10 }];
-
-  const monedaOptions = ['USD', 'EUR', 'GBP', 'JPY']; // Opciones para la moneda
-
   return (
     <Container fluid className="mt-3 mb-8 form-container">
       <Form>
-        {data.map((item) => (
-          <Row key={item.id} className="mb-9">
-            {fields.map((field) => (
-              <Col key={field.field} md={field.md}>
-                <Form.Group controlId={`${field.field}-${item.id}`}>
-                  <Form.Label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{field.label}</Form.Label>
-                  {field.field === 'moneda' ? (
-                    <Form.Select
-                      value={item[field.field]}
-                      onChange={(e) => handleInputChange(item.id, field.field, e.target.value)}
-                      style={{ fontSize: '0.8rem' }}
-                    >
-                      {monedaOptions.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </Form.Select>
-                  ) : field.field === 'fecha' ? (
-                    <>
-                      <div style={{ marginBottom: '0.01rem' }}> </div>
-                      <DatePicker
-                        selected={item[field.field]}
-                        onChange={(date) => handleInputChange(item.id, field.field, date)}
-                        dateFormat="yyyy-MM-dd"
-                        className="form-control"
-                      />
-                    </>
-                  ) : (
-                    <Form.Control
-                      type="text"
-                      value={item[field.field]}
-                      onChange={(e) => handleInputChange(item.id, field.field, e.target.value)}
-                      style={{ fontSize: '0.8rem' }}
-                    />
-                  )}
-                </Form.Group>
-              </Col>
-            ))}
-          </Row>
-        ))}
+        <Row className="mb-9">
+          <Col md={10}>
+            <Form.Group controlId="producto">
+              <Form.Label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>Nombre</Form.Label>
+              <Form.Control
+                type="text"
+                value={producto}
+                onChange={(e) => handleInputChange(e.target.value)}
+                style={{ fontSize: '0.8rem' }}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
         <div className="d-flex justify-content-end">
           <Row>
-            {' '}
-            {/* Elimina la clase 'mb-8' aquí */}
             <Col md={12} className="mb-0" style={{ marginTop: '-40px' }}>
               <Button variant="primary" className="me-2" onClick={handleSave}>
                 Guardar
@@ -101,7 +75,6 @@ const EditableTable = () => {
             </Col>
           </Row>
         </div>
-        {/* Snackbar for success message */}
         <Snackbar
           open={isSnackbarOpen}
           autoHideDuration={6000}
